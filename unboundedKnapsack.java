@@ -10,7 +10,7 @@ import java.util.Arrays;
  *
  * @author HP
  */
-public class knapSackProblem {
+class unboundedknapSackProblem {
     //recursive
     public static int knapSack(int[]val,int[]wt,int W,int n){
         if(n==0 || W==0)
@@ -56,7 +56,8 @@ public class knapSackProblem {
          for(int i=1;i<=n;i++){
              for(int j=1;j<=W;j++){
                  if(wt[i-1]<=j){
-                     int includeProfit=val[i-1]+dp[i-1][j-wt[i-1]];
+                     int includeProfit=val[i-1]+dp[i][j-wt[i-1]];//as we can add one item as many times as we want we are not excluding
+                     //that item by taking dp[i-1][j-wt[i-1]]....we are continuing for next step still with that item
                      
                      int excludeProfit=dp[i-1][j];
                      
