@@ -18,7 +18,16 @@ public class longestCommonSubseq {
         else{
             return Math.max(findLongestSubseq(s1,s2,len1,len2-1), findLongestSubseq(s1,s2,len1-1,len2));
         }
-    }
+ }
+//      public static int findLongestSubString(String s1,String s2,int len1,int len2){
+//        if(len1==0 || len2==0)
+//             return 0;
+//        if(s1.charAt(len1-1)==s2.charAt(len2-1)){
+//            return 1+findLongestSubString(s1,s2,len1-1,len2-1);
+//        }
+//        else{
+//            return 0;
+//        }
     //memoize
     public static int lcs(String s1,String s2,int len1,int len2,int[][]dp){
         if(len1==0 || len2==0)
@@ -58,7 +67,7 @@ public class longestCommonSubseq {
     }
     public static void main(String[]args){
         String s1="abcde";
-        String s2="ace";
+        String s2="abc";
         int len1=s1.length(),len2=s2.length();
         int[][]dp=new int[len1+1][len2+1];
         for(int i=0;i<len1;i++)
@@ -66,5 +75,6 @@ public class longestCommonSubseq {
         for(int j=0;j<len2;j++)
             dp[0][j]=0;
         System.out.println(lcsTabulation(s1,s2,s1.length(),s2.length()));
+//        System.out.println(findLongestSubString(s1,s2,s1.length(),s2.length()));
     }
 }
